@@ -1,3 +1,24 @@
+.texto{
+    background-color: #474141;
+    color: #febe4a;
+    width: 250px;
+    font-size: 20px;
+}
+$coloresFondo: (
+    fondo1: #febe4a,
+    fondo2: #ffffff,
+    fondo3: #474141
+);
+@mixin redes($hover){
+    font-size: 30px;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #febe4a;
+    &:hover{
+      color: $hover;
+    }
+}
 header{
     background-color: #474141;
     font-size: 20px;
@@ -38,7 +59,7 @@ header nav{
     column-gap: 5px;
 }
 .grid-container div{
-    background-color: beige;
+    background-color: white;
 }
 .grid-container2{
     display: grid;
@@ -55,7 +76,7 @@ header nav{
     grid-row-gap: 10px;
 }
 .grid-container2 li{
-    background-color: #febe4a;
+    background-color: map-get($coloresFondo, fondo1);
 }
 .editorial{
     grid-area: editorial;
@@ -84,10 +105,8 @@ header nav{
     color: #febe4a;
 }
 .subtitulo{
-    background-color: #474141;
-    color: #febe4a;
-    width: 250px;
-    font-size: 20px;
+    @extend .texto;
+    font-weight: 20px;
 }
 .parrafo{
     background-color: #febe4a;
@@ -97,12 +116,6 @@ header nav{
 }
 footer{
     background-color: #474141;
-}
-footer div h3{
-    color: white;
-    border-left: 20px;
-    padding-left: 20px;
-    margin-left: 20px;
 }
 footer div h3{
     color: white;
@@ -128,6 +141,12 @@ header div a{
     border: 20px;
     padding: 20px;
     margin: 20px;
+}
+.bi-face{
+    @include redes (face);
+}
+.bi-insta{
+    @include redes (insta)
 }
 footer{
     display: flex;
@@ -159,7 +178,7 @@ footer{
        column-gap: 5px;
     }
     .grid-container div{
-       background-color: beige;
+       background-color: white;
     }
     .parrafo{
       background-color: #febe4a;
